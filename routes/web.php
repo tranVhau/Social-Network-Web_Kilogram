@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Symfony\Component\Mime\MessageConverter;
 
@@ -26,3 +27,5 @@ Route::get('/inbox',[MessageController::class, 'message'])->name('inbox')->middl
 
 Route::get('/message/{id}',[MessageController::class,'getmessage'])->name('message');
 Route::post('/message', [MessageController::class, 'sendmessage']);
+
+Route::post('/post',[PostController::class, 'postimg']);

@@ -7,6 +7,7 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CustomAuthController;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -15,6 +16,6 @@ class HomeController extends Controller
         if(Session()->has('loginID')){
             $data = DB::table('Users')->where('id','=', Session()->get('loginID'))->first();
         }
-        return view('pages.home', compact('data'));
+        return view('pages.home', ['data'=>$data]);
     }
 }

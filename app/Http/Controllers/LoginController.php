@@ -7,6 +7,7 @@ use App\Models\User;
 Use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Session\Session;
 
+
 class LoginController extends Controller
 {
     public function login(){

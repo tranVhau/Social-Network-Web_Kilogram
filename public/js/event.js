@@ -85,6 +85,8 @@ $(document).ready(function(){
             })
         }
     })
+
+  
 })
 
 function goToBottom(speed) {
@@ -92,3 +94,10 @@ function goToBottom(speed) {
         scrollTop: $('.message-wrapper').get(0).scrollHeight
     }, speed);
 }
+
+
+
+
+
+
+

@@ -12,7 +12,6 @@
         <h1>Register</h1>
         <div>
             <form action="{{url('register-user')}}" method="post">
-
                 @csrf
                 <label for="name">Full Name</label>
                 <input type="text" placeholder="Enter full name" name="fullname" value="{{old('fullname')}}">

@@ -12,18 +12,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
     <script src="js/event.js"></script>
+
 </head>
 
 <body>
     <div class="wrapper">
         <div id="navbar">
             <div class="nav-wrapper">
-                <a href="#" class="logo-box"><img src="img/logo.png" alt=""></a>
+                <a href="{{route('home')}}" class="logo-box"><img src="img/logo.png" alt=""></a>
                 <input type="text" class="search-box" placeholder="Search">
 
                 <div class="nav-item">
                     <div class="item"><a href="{{route('home')}}"><i class="fa-solid fa-house"></i></a></div>
-                    <div class="item"><a href="#2"><i class="fa-regular fa-square-plus"></i></a> </div>
+                    <div class="item js-buy-ticket"><a><i class="fa-regular fa-square-plus"></i></a> </div>
                     <div class="item"><a href="{{route('inbox')}}"><i class="fa-regular fa-message"></i></a></div>
                     <div class="item">
                         <p id="drop-down-menu"><i class="fa-regular fa-user"></i></p>
@@ -38,12 +39,37 @@
             </div>
         </div>
 
-
         @yield('content')
 
+        <!--popup-->
+        <div class="modal js-modal">
+            <div class="modal-close js-modal-close">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="modal-container js-modal-container">
+                <div class="modal-header">
+                    <p>Create new post</p>
+                </div>
+                <form method="post" id="upload_form" enctype="multipart/form-data">
+                    @csrf
+                    <div class=" left-modal">
+                        <label for="">Select image from computer</label>
+                        <input id="post_img" type="file" name="file" class="post-img">
+                    </div>
+                    <div class=" right-modal">
+                        <textarea name="caption" id="caption" cols="30" rows="10"
+                            placeholder="Write a caption..."></textarea>
 
+                        <button id="post_btn" type="submit">Post<i class="fa-regular fa-paper-plane"></i></button>
+                    </div>
+                    <span class="text-danger" id="image-input-error"></span>
+                </form>
+            </div>
+        </div>
     </div>
-
+    <div>
+        <script src="./js/popup.js"></script>
+    </div>
 </body>
 
 </html>
