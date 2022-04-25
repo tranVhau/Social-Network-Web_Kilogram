@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Pusher\Pusher;
+use Illuminate\Support\Facades\DB;
 
 class MessageController extends Controller
 {
@@ -16,7 +17,7 @@ class MessageController extends Controller
     public function message(){
         $myID = Session()->get('loginID');
 
-        $users = User::where('id','!=',Session()->get('loginID'))->get();
+        $users = DB::table('users')->where('id','!=',Session()->get('loginID'))->get();
 
         return view('pages.message',['users'=>$users, 'myID'=>$myID]);
     }
@@ -24,7 +25,7 @@ class MessageController extends Controller
 
     public function getmessage($user_id){
         $my_id = Session()->get('loginID');
-        $messages = Message::where(function ($query) use ($user_id, $my_id) {
+        $messages = DB::table('messages')->where(function ($query) use ($user_id, $my_id) {
             $query->where('from', $user_id)->where('to', $my_id);
         })->oRwhere(function ($query) use ($user_id, $my_id) {
             $query->where('from', $my_id)->where('to', $user_id);

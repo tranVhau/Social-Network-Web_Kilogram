@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 Use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Illuminate\Support\Facades\DB;
 
 
 class LoginController extends Controller
@@ -29,6 +30,7 @@ class LoginController extends Controller
         $user = new User();
         $user->fullname = $request->fullname;
         $user->username = $request->username;
+        $user->avatar = '';
         $user->password = Hash::make($request->password);
         $user->gender = $request->gender;
         $user->describe = '';
@@ -46,7 +48,7 @@ class LoginController extends Controller
             'username'=>'required',
             'password'=>'required'       
         ]);
-        $condition1 = User::where('username', '=', $request->username)->first();
+        $condition1 = DB::table('users')->where('username','=', $request->username)->first();
         
         if(!$condition1){
             $condition2 = Hash::check($request->password, '');

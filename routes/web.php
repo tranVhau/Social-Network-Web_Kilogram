@@ -28,4 +28,6 @@ Route::get('/inbox',[MessageController::class, 'message'])->name('inbox')->middl
 Route::get('/message/{id}',[MessageController::class,'getmessage'])->name('message');
 Route::post('/message', [MessageController::class, 'sendmessage']);
 
+
 Route::post('/post',[PostController::class, 'postimg']);
+Route::post('/profile/mdf',[ProfileController::class, 'mdfProfile']);

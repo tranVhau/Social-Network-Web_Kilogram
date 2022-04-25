@@ -54,9 +54,18 @@
                     @csrf
                     <div class=" left-modal">
                         <label for="">Select image from computer</label>
-                        <input id="post_img" type="file" name="file" class="post-img">
+                        <input id="post_img" accept="image/*" type="file" name="file" class="post-img">
                     </div>
                     <div class=" right-modal">
+                        <div class="media-modal">
+                            <div class="media-modal-left">
+                                <img src={{asset('image/avt/' . $avatar)}} alt="" class="media-object">
+                            </div>
+                            <div class="media-modal-body">
+                                <p class="name">{{$data->fullname}}</p>
+                                <p class="email">{{$data->username}}</p>
+                            </div>
+                        </div>
                         <textarea name="caption" id="caption" cols="30" rows="10"
                             placeholder="Write a caption..."></textarea>
 

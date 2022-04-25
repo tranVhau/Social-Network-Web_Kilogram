@@ -1,15 +1,3 @@
-// const buyBtns = document.querySelector('.js-buy-ticket')
-// const modal = document.querySelector('.js-modal')
-// const modalClose = document.querySelector('.js-modal-close')
-// function showBuyTickets(){
-//     modal.classList.add('open')
-// }
-// function hideBuyTickets(){
-//     modal.classList.remove('open')
-// }
-// buyBtns.addEventListener('click',showBuyTickets)
-// modalClose.addEventListener('click', hideBuyTickets)
-
 $(document).ready(function(){
     $.ajaxSetup({
         headers: {
@@ -17,6 +5,7 @@ $(document).ready(function(){
         }
     });
 
+    // create post popup
     $('.js-buy-ticket').click(function(){
         $('.modal').addClass('open');
     })
@@ -36,12 +25,46 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             success: function(){
-                alert('successfully');
+                alert('Upload successfully');
             },
             error: function(){
-                alert('failed');
+                alert('Upload failed');
              },
         }) 
+    })
+
+
+
+    // update profile popup
+
+
+    $('.modify').click(function(){
+        $('.modify-modal').addClass('open');
+    })
+
+    $('.modal-mdf-close').click(function(){
+        $('.modify-modal').removeClass('open');
+    })
+
+    $('#mdf_form').on('submit', function(event){
+        event.preventDefault()
+        var y =  new FormData(this);
+        $.ajax({
+            type: 'post',
+            url: "profile/mdf",
+            data:new FormData(this),
+            contentType: false,
+            processData: false,
+
+            success: function(data){
+                // alert('Your changes have been successful');
+                alert(data.success);
+            },
+            error: function(data){
+                alert(data.responseJSON.error);
+             },
+            
+        })
     })
 })
 

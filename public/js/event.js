@@ -27,6 +27,8 @@ $(document).ready(function(){
         
         if (myID == data.from) {
             $('#' + data.to).click();
+            
+           
         } else if (myID == data.to) {
             if (receiver_id == data.from) {
                 // if receiver is selected, reload the selected user ...
@@ -42,15 +44,16 @@ $(document).ready(function(){
 
 
 
-    
-
     $('.item:last-child').click(function(){
         $('.drop-field').toggle('block');
     })
 
 
+
+
     $('.user').click(function () {
         receiver_id = $(this).attr('id');
+        $('.user').find('.media-body p').css({'font-weight' : 'normal'});
         $.ajax({
             type: "get",
             url: "message/"+receiver_id, 

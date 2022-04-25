@@ -12,10 +12,6 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function home(){
-        $data = array();
-        if(Session()->has('loginID')){
-            $data = DB::table('Users')->where('id','=', Session()->get('loginID'))->first();
-        }
-        return view('pages.home', ['data'=>$data]);
+        return view('pages.home');
     }
 }

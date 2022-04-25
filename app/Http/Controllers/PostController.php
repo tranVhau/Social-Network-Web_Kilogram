@@ -31,19 +31,6 @@ class PostController extends Controller
 
             if($res){
                 $request->file->move(public_path('image/post'), $fileName);
-               
             }
-            else{
-                
-            }
-
-        // }
-        
-
-        
-        // $fileName = time().'.'.$request->file->extension();  
-
-        
-        
     }
 }
