@@ -51,6 +51,7 @@ li {
     border: 1px solid #dddddd;
     overflow-y: auto;
     border-radius: 14px;
+
 }
 
 .user-wrapper {
@@ -85,6 +86,7 @@ li {
 }
 
 .media-left img {
+    height: 100%;
     width: 56px;
     border-radius: 56px;
 }
@@ -158,6 +160,15 @@ li {
 
 .submit:focus {
     border: 1px solid #aaaaaa;
+}
+
+.No_message {
+    text-align: center;
+    margin-top: 35%;
+    font-size: 30px;
+    line-height: 40px;
+    opacity: 0.8;
+    font-weight: bold;
 }
 
 

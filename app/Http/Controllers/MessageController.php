@@ -17,7 +17,26 @@ class MessageController extends Controller
     public function message(){
         $myID = Session()->get('loginID');
 
-        $users = DB::table('users')->where('id','!=',Session()->get('loginID'))->get();
+        DB::statement("CREATE OR REPLACE VIEW v_following 
+            as
+            SELECT u.id, username, fullname, avatar,follower, following
+            FROM users u
+            
+            JOIN follow on u.id = follow.follower
+            WHERE u.id = $myID
+            ");
+
+        $users =  DB::select("SELECT u.id, u.username,u.fullname, u.avatar 
+        from users u  
+        LEFT JOIN v_following on 
+        v_following.following = u.id 
+        WHERE u.id != $myID AND following is NOT NULL
+        UNION
+        SELECT  z.id, z.username, z.fullname, z.avatar
+        FROM messages m
+        JOIN users z on m.from = z.id
+        WHERE m.to = $myID
+        ");
 
         return view('pages.message',['users'=>$users, 'myID'=>$myID]);
     }

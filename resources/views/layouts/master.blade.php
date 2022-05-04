@@ -6,20 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="{{asset('css/master.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://kit.fontawesome.com/645f4b641d.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    <script src="js/event.js"></script>
-
+    <script src="{{asset('js/message.js')}}"></script>
 </head>
 
 <body>
     <div class="wrapper">
         <div id="navbar">
             <div class="nav-wrapper">
-                <a href="{{route('home')}}" class="logo-box"><img src="img/logo.png" alt=""></a>
+                <a href="{{route('home')}}" class="logo-box"><img src="{{asset('img/logo.png')}}" alt=""></a>
                 <input type="text" class="search-box" placeholder="Search">
 
                 <div class="nav-item">
@@ -77,7 +76,7 @@
         </div>
     </div>
     <div>
-        <script src="./js/popup.js"></script>
+        <script src="{{asset('./js/popup.js')}}"></script>
     </div>
 </body>
 

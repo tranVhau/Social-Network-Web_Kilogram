@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@500&family=Roboto:wght@300&display=swap");
+
+.main {
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.wrapper1 {
+    width: 70%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-gap: 30px;
+}
+
+.left-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.status-wrapper {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    padding: 10px;
+    padding-right: 0;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    overflow-x: auto;
+    border-radius: 6px;
+}
+
+.status-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+
+.status-card {
+    flex: 0 0 auto;
+    width: 80px;
+    max-width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 3px;
+    background: linear-gradient(45deg, rgb(128, 229, 252), rgb(27, 131, 241) 80%);
+}
+
+
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.username {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 5px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+
+.status-wrapper .username {
+    font-weight: normal;
+}
+
+.username:hover {
+    text-decoration: underline;
+}
+
+.post {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    margin-top: 16px;
+    border-radius: 6px;
+}
+
+.info {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.info .username {
+    width: auto;
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+    margin-left: 10px;
+}
+
+.info .options {
+    height: 10px;
+    cursor: pointer;
+}
+
+.info .user {
+    display: flex;
+    align-items: center;
+}
+
+.info .profile-pic {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    background: none;
+}
+
+.info .profile-pic img {
+    border: none;
+}
+
+.post-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.post-content {
+    width: 100%;
+    padding: 20px;
+}
+
+.likes {
+    font-weight: bold;
+}
+
+.description {
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.description span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+
+.post-time {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+}
+
+.comment-wrapper {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #dfdfdf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-wrapper .icon {
+    height: 30px;
+    border-radius: 50%;
+}
+
+.comment-box {
+    width: 80%;
+    height: 44px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.comment-btn,
+.logout-btn,
+.follow-btn {
+    width: 70px;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    text-transform: capitalize;
+    font-size: 16px;
+    color: (0, 162, 255);
+    opacity: 0.5;
+}
+
+.reaction-wrapper {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin-top: -20px;
+    align-items: center;
+}
+
+.reaction-wrapper .icon {
+    height: 25px;
+    margin: 0;
+    margin-right: 20px;
+    -moz-user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+.icon-like,
+.icon-comment {
+    color: rgb(81, 81, 81);
+    font-size: 26px;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.icon-like-1 {
+    color: #ff607c;
+    font-size: 26px;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.icon-like-0 {
+    color: rgb(81, 81, 81);
+    font-size: 26px;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+
+
+.likecountcss {
+    color: #000;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.right-col {
+    position: sticky;
+    top: 40;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.profile-card,
+.suggestion-card {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 6px 16px;
+    border-radius: 4px;
+
+}
+
+
+
+.profile-card .profile-pic {
+    flex: 0 0 auto;
+    padding: 0;
+    background: none;
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.profile-card .profile-pic img {
+    border: none;
+    width: 70px;
+    height: 70px;
+}
+
+
+
+.suggestion-card .username {
+    font-weight: 500px;
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 0;
+}
+
+.profile-card .curr-username {
+    font-weight: 500px;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 0;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.profile-card .curr-username:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.profile-card .sub-text,
+.suggestion-card .sub-text {
+    color: #000;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 2px;
+    margin-bottom: 0;
+
+}
+
+.logout-btn,
+.follow-btn {
+    opacity: 1;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 30px;
+    color: rgb(39, 134, 250);
+    cursor: pointer;
+}
+
+.logout-btn {
+    text-decoration: none;
+    color: #000;
+
+}
+
+
+
+.suggestion-card .suggestion-pic {
+    flex: 0 0;
+    padding: 0;
+    background: none;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.suggestion-card .suggestion-pic img {
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.suggestion-text {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    margin: 20px 0;
+
+}

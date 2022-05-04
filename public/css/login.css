@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.Login-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #e1e1e1;
+}
+
+.login-main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.login-content {
+  width: 26%;
+  height: 55%;
+  margin-top: 8%;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow:
+    0 0 5px 5px #c7c7c7,
+    0 0 5px 5px #c7c7c7,
+    5px 0 5px 5px #c7c7c7
+}
+
+.box {
+  border: 0.5px solid rgba(234, 241, 244, 0.5);
+  border-radius: 5px;
+}
+
+.logo-login {
+  height: 50px;
+  width: 135px;
+  margin-top: 5%;
+  margin-left: 30px;
+}
+
+.logo-login img {
+  width: 135px;
+
+}
+
+.login-form {
+  text-align: center;
+  padding-top: 25px;
+  margin-bottom: 10px;
+}
+
+.login-input {
+  margin-bottom: 40px;
+  height: 40px;
+  width: 100%;
+  position: relative;
+}
+
+.login-text {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.login-input input {
+  padding: 10px 8px 7px;
+  font-size: 18px;
+  border-radius: 7px;
+  border: 1px solid rgb(111, 111, 111);
+  width: 90%;
+  height: 50px;
+}
+
+.message-log {
+  text-align: center;
+}
+
+
+
+.login-input input::placeholder {
+  font-size: 14px;
+}
+
+span {
+  display: block;
+  padding: 10px;
+}
+
+.or {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.or hr {
+  width: 45%;
+}
+
+select {
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+  height: 30px;
+  border-radius: 13px;
+  margin-left: 15px;
+}
+
+.or span {
+  color: #000;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.login-btn {
+  width: 20%;
+  border: 1px solid transparent;
+  outline: 0;
+  background: rgb(0, 162, 255);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.goto-register {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.goto-register p {
+  font-size: 18px;
+  margin: 15px;
+  text-align: center;
+}
+
+.goto-register a {
+  text-decoration: none;
+  color: rgb(0, 162, 255);
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 600;
+}
+
+
+
+/* register */
+
+.register-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #dfdfdf;
+}
+
+.register-main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.register-content {
+  width: 40%;
+  height: 85%;
+  position: absolute;
+  margin-top: 5%;
+  background-color: #fff;
+  box-shadow:
+    0 0 5px 5px #c7c7c7,
+    0 0 5px 5px #c7c7c7,
+    5px 0 5px 5px #c7c7c7
+}
+
+.box {
+  border: 0.5px solid rgba(234, 241, 244, 0.5);
+  border-radius: 5px;
+}
+
+.register-content .register-logo {
+  text-align: center;
+  height: 50px;
+  width: 175px;
+}
+
+.register-logo img {
+  margin-top: 20px;
+  width: 125px;
+}
+
+.register-form {
+  padding-top: 25px;
+  margin-bottom: 10px;
+}
+
+.register-group {
+  margin: 0 40px 6px;
+  margin-bottom: 20px;
+}
+
+.register-input {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 5px;
+  position: relative;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.register-input input {
+  padding: 10px 8px 7px;
+  font-size: 18px;
+  border-radius: 7px;
+  border: 1px solid rgb(111, 111, 111);
+  width: 100%;
+  height: 30px;
+}
+
+h1 {
+  padding: 15px;
+  text-align: center;
+}
+
+.register-input input::placeholder {
+  font-size: 16px;
+}
+
+.or {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.or hr {
+  width: 45%;
+}
+
+.or span {
+  color: #000;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+span {
+  display: block;
+  font-size: 9px;
+  padding: 5px;
+}
+
+.register-btn {
+  width: 20%;
+  border: 1px solid transparent;
+  outline: 0;
+  background: rgb(0, 162, 255);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.goto-login {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.goto-login p {
+  font-size: 18px;
+  margin: 15px;
+  text-align: center;
+}
+
+.goto-login a {
+  text-decoration: none;
+  color: rgb(0, 162, 255);
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 600;
+}

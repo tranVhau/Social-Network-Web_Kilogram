@@ -1,39 +1,56 @@
 @extends('layouts.master1')
 
 @section('title', 'Login')
-
+<link rel="stylesheet" href="{{asset('css/login.css')}}">
 @section('content')
 
 <div class="Login-container">
-    <div class="logo">
-        <img src="img\logo.png" alt="">
-    </div>
-    <h1>Login</h1>
-    <div>
-        <form action="{{route('login-user')}}" method="post">
-            @csrf
-            <label for="username">Username</label>
-            <input type="text" placeholder="Enter username" name="username" value="{{old('username')}}">
-            <span style="color: red">
-                @error('username') {{$message}}@enderror
-            </span>
-            <br>
-            <label for="password">Password</label>
-            <input type="password" placeholder="Enter password" name="password">
-            <span style="color: red">
-                @error('password') {{$message}}@enderror
-            </span>
-            <br>
-            <button type="submit"> Login </button>
-        </form>
-    </div>
-    <div>
-        @if (Session()->has('fail'))
-        <div>{{Session()->get('fail')}}</div>
-        @endif
-    </div>
-    <div>
-        <p> Join Kilogram Now !!! <a href="{{url('register')}}"> Register </a></p>
+    <div class="login-main">
+        <div class="logo-login">
+            <img src="{{asset('img\logo.png')}}" alt="">
+        </div>
+        <div class="login-content box">
+            <p class="login-text">Login</p>
+            <form action="{{route('login-user')}}" method="post" class="login-form">
+                @csrf
+                <div class="form-group">
+                    <div class="login-input">
+                        <input type="text" placeholder="Enter username" name="username" value="{{old('username')}}">
+                        <span style="color: red">
+                            @error('username') {{$message}}@enderror
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="login-input">
+                        <input type="password" placeholder="Enter password" name="password">
+                        <span style="color: red">@error('password') {{$message}}@enderror</span>
+                    </div>
+                </div>
+
+                <div class="btn">
+                    <button id="login-btn" class="login-btn" type="submit"> Login </button>
+                </div>
+
+                <div>
+                    @if (Session()->has('fail'))
+                    <div>{{Session()->get('fail')}}</div>
+                    @endif
+                </div>
+
+                {{-- <button type="submit"> Login </button> --}}
+            </form>
+            <div class="or">
+                <hr />
+                <span>OR</span>
+                <hr />
+
+            </div>
+            <div class="goto-register">
+                <p> Join Kilogram Now !!! <a href="{{url('register')}}"> Register </a></p>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

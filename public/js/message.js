@@ -49,11 +49,11 @@ $(document).ready(function(){
     })
 
 
-
-
     $('.user').click(function () {
         receiver_id = $(this).attr('id');
         $('.user').find('.media-body p').css({'font-weight' : 'normal'});
+        $('.users').find('.user').css({'background-color' : '#ffffff', 'border':'none'});
+        $('.users').find('#'+receiver_id).css({'background-color' : '#eeeeee', 'border-right':'5px solid RGB(77, 136, 246)'});
         $.ajax({
             type: "get",
             url: "message/"+receiver_id, 

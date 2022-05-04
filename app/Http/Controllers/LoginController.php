@@ -30,7 +30,7 @@ class LoginController extends Controller
         $user = new User();
         $user->fullname = $request->fullname;
         $user->username = $request->username;
-        $user->avatar = '';
+        $user->avatar = 'avatar.jpeg';
         $user->password = Hash::make($request->password);
         $user->gender = $request->gender;
         $user->describe = '';

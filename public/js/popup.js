@@ -26,6 +26,8 @@ $(document).ready(function(){
             processData: false,
             success: function(){
                 alert('Upload successfully');
+                $('.modal').removeClass('open');
+                
             },
             error: function(){
                 alert('Upload failed');
@@ -33,11 +35,31 @@ $(document).ready(function(){
         }) 
     })
 
+    save_img = document.querySelector("#chose-img");
+    save_img.onchange = function (e) {
+        if (e.target.files.length > 0) {
+            src = URL.createObjectURL(e.target.files[0]);
+            image = document.querySelector(".img-container img");
+            image.src = src;
+        }
+    }
+
+    
+    // post on click
+    $('.post').click(function(){
+        // postID = $(this).attr('id');
+        // alert(postID);
+        $('.post-modal').addClass('open');
+    })
+
+    $('.modal-post-close').click(function(){
+        // postID = $(this).attr('id');
+        // alert(postID);
+        $('.post-modal').removeClass('open');
+    })
 
 
-    // update profile popup
-
-
+    // modify
     $('.modify').click(function(){
         $('.modify-modal').addClass('open');
     })
@@ -59,6 +81,8 @@ $(document).ready(function(){
             success: function(data){
                 // alert('Your changes have been successful');
                 alert(data.success);
+                $('.modify-modal').removeClass('open');
+                
             },
             error: function(data){
                 alert(data.responseJSON.error);

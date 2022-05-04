@@ -14,10 +14,21 @@
 }
 
 .user-container .user-avatar {
-    width: 155px;
+    /* width: 155px;
     height: 155px;
     border-radius: 75px;
     border: 2px solid rgb(56, 56, 56);
+    background: linear-gradient(45deg, rgb(128, 229, 252), rgb(27, 131, 241) 80%); */
+    width: 155px;
+    height: 155px;
+    border-radius: 75px;
+    padding: 4px;
+    background: linear-gradient(49deg, rgb(255, 255, 255), rgb(75, 75, 75) 92%)
+}
+
+.user-container .user-avatar:hover {
+    background: linear-gradient(45deg, rgb(235, 86, 232), rgb(240, 78, 50) 80%);
+
 }
 
 .user-container .user-name-field {
@@ -45,6 +56,8 @@ a.logo-box img {
     width: 103px;
 }
 
+
+
 .user-container .folow-detail {
     padding: 10px 150px;
 }
@@ -64,6 +77,8 @@ a.logo-box img {
     padding: 10px;
     text-align: center;
 }
+
+
 
 /* post section */
 
@@ -115,8 +130,9 @@ a.logo-box img {
 }
 
 .post:hover img {
-    opacity: 0.8;
+    opacity: 0.5;
 }
+
 
 .post:hover .heart-icon {
     transition-duration: 0.5s;
@@ -125,10 +141,17 @@ a.logo-box img {
 
 .post .heart-icon {
     font-size: 20px;
-    color: #f5f5f5;
+    color: #ff607c;
 }
 
+.post .like-count {
+    color: #ff607c;
+    font-weight: bold;
+}
 
+/* modal */
+
+/* 
 .modify-modal {
     position: fixed;
     top: 0;
@@ -184,4 +207,235 @@ input#post_img {
     to {
         transform: translateY(0);
     }
+} */
+
+
+.modify-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.819);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+
+.modify-modal.open {
+    display: flex;
+}
+
+
+.modal-mdf-container {
+    background-color: #ffff;
+    width: 30%;
+    height: 70%;
+    position: relative;
+    animation: modalFadeIn ease 0.5s;
+    border-radius: 15px;
+    /* thêm vào */
+    margin: auto;
+}
+
+/* thêm vào */
+
+.img-content {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: transparent;
+    margin: 20px;
+}
+
+.img-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: aliceblue;
+    animation: 0.5s animate1 linear;
+    box-shadow: 0 5px 5px -4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes animate1 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.img-container i {
+    font-size: 70px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #37adfd;
+}
+
+.img-container img {
+    transform: translateZ(1px);
+    width: unset;
+    height: 100%;
+    object-fit: cover;
+}
+
+.setting-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #37adfd;
+    color: #fff;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 8px;
+    bottom: 5px;
+    animation: animate2 0.3s linear;
+    font-size: 15px;
+}
+
+@keyframes animate2 {
+    0% {
+        transform: scale(0);
+    }
+
+    60% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.modify-input {
+    margin: 20px;
+}
+
+.edit-input input {
+    margin-top: 10px;
+    padding: 10px 8px 7px;
+    border: 0;
+    outline: 0;
+    color: #000;
+    font-size: 12px;
+    width: 98%;
+    border-radius: 3px;
+    border: 1px solid rgb(112, 112, 112);
+}
+
+.descripton {
+    width: 100%;
+    height: 100px;
+}
+
+.descripton textarea {
+    margin-left: 20px;
+    resize: none;
+    width: 90%;
+    height: 100%;
+    border-radius: 3px;
+    border: 1px solid rgb(89, 89, 89);
+}
+
+.btn {
+    position: absolute;
+    bottom: 3%;
+    right: 2%;
+    width: 100px;
+}
+
+.save-btn {
+    width: 85%;
+    border: 1px solid transparent;
+    outline: 0;
+    background: rgb(0, 162, 255);
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input#post_img {
+    height: 30%;
+}
+
+.modify-modal .modal-mdf-header {
+    border-bottom: 2px solid rgb(209, 209, 209);
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+}
+
+.modal-mdf-close {
+    color: rgb(245, 245, 245);
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 46px;
+    cursor: pointer;
+}
+
+/* @keyframes modalFadeIn {
+    from {
+        transform: translateY(-500px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+} */
+
+
+/* Post-modal */
+
+.post-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.819);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+
+.post-modal.open {
+    display: flex;
+}
+
+.modal-post-close {
+    color: rgb(245, 245, 245);
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 46px;
+    cursor: pointer;
+}
+
+.modal-post-container {
+    background-color: #ffff;
+    width: 70%;
+    height: 90%;
+    position: relative;
+    animation: modalFadeIn ease 0.5s;
+    border-radius: 15px;
+    /* thêm vào */
+    margin: auto;
 }

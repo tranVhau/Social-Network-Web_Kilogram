@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PeopleController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Symfony\Component\Mime\MessageConverter;
@@ -31,3 +32,9 @@ Route::post('/message', [MessageController::class, 'sendmessage']);
 
 Route::post('/post',[PostController::class, 'postimg']);
 Route::post('/profile/mdf',[ProfileController::class, 'mdfProfile']);
+
+
+Route::get('/Kilogram/{username}',[PeopleController::class, 'peopleProfile']);
+Route::post('/Kilogram/follow',[PeopleController::class, 'onFollow']);
+Route::post('/Home/follow',[HomeController::class, 'onFollow']);
+Route::post('/Home/like',[HomeController::class, 'onLike']);

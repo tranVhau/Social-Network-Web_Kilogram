@@ -1,6 +1,6 @@
 @extends ('layouts.master')
 @section('title', 'Inbox')
-<link rel="stylesheet" href="css/message.css">
+<link rel="stylesheet" href="{{asset('css/message.css')}}">
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -15,7 +15,7 @@
                 <li class="user" id="{{$user->id}}">
                     <div class="media">
                         <div class="media-left">
-                            <img src="https://via.placeholder.com/150" alt="" class="media-object">
+                            <img src="{{asset('image/avt/'.$user->avatar)}}" alt="" class="media-object">
                         </div>
                         <div class="media-body">
                             <p class="name">{{$user->fullname}}</p>

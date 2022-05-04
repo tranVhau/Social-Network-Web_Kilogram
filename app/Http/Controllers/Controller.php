@@ -18,11 +18,13 @@ class Controller extends BaseController
     {
         $this->middleware(function ($request, $next) {
 
+            
+
             $data = array();
             $data = DB::table('Users')->where('id','=', $request->Session()->get('loginID'))->first();
             $userdata = $request->Session()->get('loginID');
 
-            $loadAVT=DB::table('users')->where('id',$data->id)->value('avatar');
+            $loadAVT=DB::table('users')->where('id',$userdata)->value('avatar');
 
     
             view()->share(['data'=> $data,'avatar'=>$loadAVT]);

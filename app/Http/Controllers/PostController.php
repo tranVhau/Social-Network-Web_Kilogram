@@ -28,6 +28,7 @@ class PostController extends Controller
             $new_post->imgdir =  $fileName;  
             
             $res= $new_post->save();
+            // $result = $request->file->storeOnCloudinary('posts');
 
             if($res){
                 $request->file->move(public_path('image/post'), $fileName);
