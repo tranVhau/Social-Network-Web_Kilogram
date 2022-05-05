@@ -99,10 +99,48 @@
 
 <div class="post-modal">
     <div class="modal-post-close">
-        <i class="fa-solid fa-xmark"></i>
+        <i class="fas fa-times"></i>
     </div>
     <div class="modal-post-container">
+        <div class="img-post-left">
+            <img class="post-photo" src="{{asset('image/avt/avatar.jpeg')}}" alt="">
+        </div>
+        <div class="content-post-right">
+            <div class="content-post-top">
+                <div class="content-post-pic">
+                    <img class="user-post-avt" src="" />
+                </div>
+                <p class="content-post-name">Oh.Neo</p>
+            </div>
+            <div class="content-post-main">
+                <div class="content-post-cmt">
+                    <div class="content-post-pic-cmt">
+                        <img src="https://pdp.edu.vn/wp-content/uploads/2021/01/hinh-anh-cute-de-thuong.jpg" />
+                    </div>
+                    <div class="cmt-box-main">
+                        <div class="top-cmt">
+                            <p class="user-cmt">username</p>
+                            <p class="sub-cmt-time">1 hour ago</p>
+                            <p class="cmt-sub">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
+                                accusamus, voluptatum tempora quidem fugit ab nisi possimus quam nulla suscipit
+                                architecto praesentium exercitationem provident iusto! Architecto, eligendi ex? Et,
+                                sint? </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-bot">
+                <p class="like-post">2,154 likes</p>
+                <p class="time-post">2021/12/08</p>
+            </div>
 
+            <div class="modal-caption"> Lorem ipsum dolor sit amet consectetur ..</div>
+            <div class="cmt">
+                <img class="user-post-avt1" class="img-cmt" src="{{asset('image/avt/'.$avatar)}}" />
+                <input type="text" class="cmt-box" placeholder="Add a comment" />
+                <button class="cmt-btn">post</button>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

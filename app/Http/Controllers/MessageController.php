@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\DB;
 
 class MessageController extends Controller
 {
-    
     public function message(){
         $myID = Session()->get('loginID');
 

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 
 class ProfileController extends Controller
 {
@@ -57,4 +58,5 @@ class ProfileController extends Controller
        
         return response()->json(['success' => 'Successfully'],200);
     }
+
 }

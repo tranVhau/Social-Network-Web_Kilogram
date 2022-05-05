@@ -69,7 +69,9 @@ a.logo-box img {
 }
 
 .user-container .folow-detail {
-    padding: 10px 150px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 250px;
 }
 
 .user-container .folow-detail a {

@@ -47,9 +47,26 @@ $(document).ready(function(){
     
     // post on click
     $('.post').click(function(){
-        // postID = $(this).attr('id');
+        postID = $(this).attr('id');
         // alert(postID);
-        $('.post-modal').addClass('open');
+        
+        $.ajax({
+            type: 'post',
+            url: "comment/post/"+postID,
+            cache: false,
+            success: function(data){
+                $('.modal-caption').text(data.caption)
+                $('.like-post').text(data.likecount + " Likes");
+                $('.post-photo').attr('src',"image/post/"+data.imgdir);
+                $('.user-post-avt').attr('src', "image/avt/"+data.avatar);
+                $('.content-post-name').text(data.username)
+                // alert(data.likecount);
+                // $('.time-post').text(c)
+
+
+                $('.post-modal').addClass('open');
+            }
+        })
     })
 
     $('.modal-post-close').click(function(){

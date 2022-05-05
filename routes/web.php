@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
@@ -38,3 +39,5 @@ Route::get('/Kilogram/{username}',[PeopleController::class, 'peopleProfile']);
 Route::post('/Kilogram/follow',[PeopleController::class, 'onFollow']);
 Route::post('/Home/follow',[HomeController::class, 'onFollow']);
 Route::post('/Home/like',[HomeController::class, 'onLike']);
+
+Route::post('comment/post/{postID}', [CommentController::class, 'postModal']);
