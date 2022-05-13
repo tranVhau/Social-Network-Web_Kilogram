@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Pusher\Pusher;
 
 class CommentController extends Controller
 {
@@ -25,5 +26,25 @@ class CommentController extends Controller
     // dd($dataPost);
     return response()->json($dataPost);
     // return(['data'=>$dataPost]);
+    }
+
+    
+    public function postComment(Request $request){
+
+        $options = array(
+            'cluster' => 'ap1',
+            'useYLS' => true
+        );
+
+        $pusher = new Pusher(
+            env(key: 'PUSHER_APP_KEY'),
+            env(key: 'PUSHER_APP_SECRET'),
+            env(key: 'PUSHER_APP_ID'),
+            $options
+        );
+
+        $data = ['comment' => $request->comment];
+        $pusher ->trigger('my-channel', 'my-event-comment', $data);
+
     }
 }

@@ -1,5 +1,23 @@
 $(document).ready(function () {  
 
+    Pusher.logToConsole = true;
+
+     var pusher = new Pusher('bdf53e2c44d214125a54', {
+       cluster: 'ap1'
+     });
+ 
+     var channel = pusher.subscribe('my-channel');
+     channel.bind('my-event-comment', function(data) {
+        // if(myID == data.to){
+        //     $('#' + data.from).find('.media-body p').css({'font-weight' : 'bold'});
+        // }else if(receiver_id == data.from){
+        //     $('#' + data.to).find('.media-body p').css({'font-weight' : 'normal'});
+        // }  
+        
+            alert(data.comment)
+    });
+
+
     // $('.post').click(function(){
     //     // postID = $(this).attr('id');
     //     // alert(postID);
@@ -28,6 +46,31 @@ $(document).ready(function () {
             }
         })
       });
+
+
+
+      $(document).on('keyup', '.cmt-box', function(e){
+        var comment = $(this).val();
+        if(e.keyCode == 13 && comment != ''){
+            $(this).val('');
+
+            $.ajax({
+                type: "post",
+                url:"comment",
+                cache: false,
+                data: {'comment': comment},
+                success: function(){
+
+                },
+                error: function(jqXHR, status, err) {
+                    
+                },
+                compelete: function(){
+                   
+                }
+            })
+        }
+    })
     
 
     $('.modal-post-close').click(function(){
