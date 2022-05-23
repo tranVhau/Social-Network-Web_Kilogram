@@ -1,5 +1,7 @@
 $(document).ready(function () {  
 
+    var postID = 0;
+
     Pusher.logToConsole = true;
 
      var pusher = new Pusher('bdf53e2c44d214125a54', {
@@ -8,13 +10,22 @@ $(document).ready(function () {
  
      var channel = pusher.subscribe('my-channel');
      channel.bind('my-event-comment', function(data) {
-        // if(myID == data.to){
-        //     $('#' + data.from).find('.media-body p').css({'font-weight' : 'bold'});
-        // }else if(receiver_id == data.from){
-        //     $('#' + data.to).find('.media-body p').css({'font-weight' : 'normal'});
-        // }  
+
+        var html_tag = 
+        "<div class='content-post-cmt'>"+
+            "<div class='content-post-pic-cmt'>"+
+                "<img src='https://pdp.edu.vn/wp-content/uploads/2021/01/hinh-anh-cute-de-thuong.jpg'/>"+
+            "</div>"+
+            "<div class='cmt-box-main'>"+
+                "<div class='top-cmt'>"+
+                    "<p class='user-cmt'>username</p>"+
+                    "<p class='sub-cmt-time'>1 hour ago</p>"+
+                    "<p class='cmt-sub'>"+data.comment+ "</p>"+
+                "</div>"+
+            "</div>"+
+        "</div>"
         
-            alert(data.comment)
+        $('.content-post-right .content-post-main').append(html_tag)
     });
 
 
@@ -26,23 +37,42 @@ $(document).ready(function () {
 
     $(".icon-comment").click(function() {
         postID = $(this).attr('id');
-        // alert("comming soon" + postID);
 
         $.ajax({
             type: 'post',
             url: "comment/post/"+postID,
             cache: false,
             success: function(data){
-                $('.modal-caption').text(data.caption)
-                $('.like-post').text(data.likecount + " Likes");
-                $('.post-photo').attr('src',"image/post/"+data.imgdir);
-                $('.user-post-avt').attr('src', "image/avt/"+data.avatar);
-                $('.content-post-name').text(data.username)
-                // alert(data.likecount);
-                // $('.time-post').text(c)
+
+                $.each(data.cmtLst, function( index, value) {
+                    html_tag = "<div class='content-post-cmt'>"+
+                        "<div class='content-post-pic-cmt'>"+
+                            "<img src='"+ value.avatar +"'/>"+
+                    "</div>"+
+                    "<div class='cmt-box-main'>"+
+                        "<div class='top-cmt'>"+
+                            "<p class='user-cmt'>"+ value.username +"</p>"+
+                            "<p class='sub-cmt-time'>1 hour ago</p>"+
+                            "<p class='cmt-sub'>"+value.comment+ "</p>"+
+                        "</div>"+
+                    "</div>"+
+                "</div>"
+
+                $('.content-post-right .content-post-main').append(html_tag)
+                });
+                
+
+                $('.modal-caption').text(data.postData.caption)
+                $('.like-post').text(data.postData.likecount + " Likes");
+                $('.post-photo').attr('src',"image/post/"+data.postData.imgdir);
+                $('.user-post-avt').attr('src', "image/avt/"+data.postData.avatar);
+                $('.content-post-name').text(data.postData.username)
+                
 
 
                 $('.post-modal').addClass('open');
+
+                // alert(data.postData.username)
             }
         })
       });
@@ -58,7 +88,7 @@ $(document).ready(function () {
                 type: "post",
                 url:"comment",
                 cache: false,
-                data: {'comment': comment},
+                data: {'comment': comment, 'postID': postID},
                 success: function(){
 
                 },

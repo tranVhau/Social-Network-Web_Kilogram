@@ -106,7 +106,7 @@
         </div>
         <div class="modal-post-container">
             <div class="img-post-left">
-                <img class="post-photo" src="image/avt/avatar.jpeg" alt="">
+                <img class="post-photo" src="" alt="">
             </div>
             <div class="content-post-right">
                 <div class="content-post-top">
@@ -116,21 +116,7 @@
                     <p class="content-post-name">Oh.Neo</p>
                 </div>
                 <div class="content-post-main">
-                    <div class="content-post-cmt">
-                        <div class="content-post-pic-cmt">
-                            <img src="https://pdp.edu.vn/wp-content/uploads/2021/01/hinh-anh-cute-de-thuong.jpg" />
-                        </div>
-                        <div class="cmt-box-main">
-                            <div class="top-cmt">
-                                <p class="user-cmt">username</p>
-                                <p class="sub-cmt-time">1 hour ago</p>
-                                <p class="cmt-sub">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique
-                                    accusamus, voluptatum tempora quidem fugit ab nisi possimus quam nulla suscipit
-                                    architecto praesentium exercitationem provident iusto! Architecto, eligendi ex? Et,
-                                    sint? </p>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="content-bot">
                     <p class="like-post">2,154 likes</p>

@@ -11,26 +11,28 @@ class CommentController extends Controller
     //
 
     public function postModal($postID){
-        // $dataPost = DB::table('posts')->where('postid',$postID)->get();
-        // $currID = Session()->get('LoginID');
-        // $currUser = DB::table('user')
+
+
+        $comment_lst = DB::table('users')->join('comment_tb', 'id', 'user_c_id')->where('post_id', $postID)->get();
+
         $dataPost = DB::table('users')->join('posts','id','userid')->where('postid',$postID)->first();
 
-    //     $dataPost = DB::select("SELECT * FROM (SELECT u.id, u.username, u.fullname, u.avatar, p.postid, p.imgdir, p.caption, p.likecount, p.created_at
-    //     FROM users u 
-    //     JOIN posts p 
-    //     WHERE u.id = p.userid) k 
-    // WHERE k.postid = $postID");
-    
 
-    // dd($dataPost);
-    return response()->json($dataPost);
-    // return(['data'=>$dataPost]);
+    
+        $response = ['postData'=>$dataPost,'cmtLst'=>$comment_lst];
+        return response()->json($response);
+
     }
 
     
     public function postComment(Request $request){
 
+        DB::table('comment_tb')->insert([
+            'user_c_id'=>Session()->get('loginID'),
+            'post_id'=>$request->postID,
+            'comment'=>$request->comment
+        ]);
+        
         $options = array(
             'cluster' => 'ap1',
             'useYLS' => true
