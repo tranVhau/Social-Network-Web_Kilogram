@@ -108,31 +108,37 @@
             <div class="img-post-left">
                 <img class="post-photo" src="" alt="">
             </div>
+
+
+
             <div class="content-post-right">
-                <div class="content-post-top">
-                    <div class="content-post-pic">
-                        <img class="user-post-avt" src="" />
+                <div id="content-post-right-wrapper">
+                    <div class="content-post-top">
+                        <div class="content-post-pic">
+                            <img class="user-post-avt" src="" />
+                        </div>
+                        <p class="content-post-name">no name</p>
                     </div>
-                    <p class="content-post-name">Oh.Neo</p>
-                </div>
-                <div class="content-post-main">
+                    <div class="content-post-main">
 
-                </div>
-                <div class="content-bot">
-                    <p class="like-post">2,154 likes</p>
-                    <p class="time-post">2021/12/08</p>
-                </div>
+                    </div>
+                    <div class="content-bot">
+                        <p class="like-post"> 0 likes</p>
+                        <p class="time-post">2021/12/08</p>
+                    </div>
 
-                <div class="modal-caption"> Lorem ipsum dolor sit amet consectetur ..</div>
-                <div class="cmt">
-                    <img class="user-post-avt1" src="{{asset('image/avt/'.$avatar)}}" class="img-cmt" />
-                    <input type="text" class="cmt-box" placeholder="Add a comment" />
-                    <button class="cmt-btn">post</button>
+                    <div class="modal-caption"> Lorem ipsum dolor sit amet consectetur....</div>
+                    <div class="cmt">
+                        <img class="user-post-avt1" src="{{asset('image/avt/'.$avatar)}}" class="img-cmt" />
+                        <input type="text" class="cmt-box" placeholder="Add a comment" />
+                        <button class="cmt-btn">post</button>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 
-    <script src="{{asset('js/home.js')}}"></script>
+    <script src="{{asset('./js/home.js')}}"></script>
 </div>
 @endsection

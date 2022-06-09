@@ -27,8 +27,10 @@ class CommentController extends Controller
     
     public function postComment(Request $request){
 
+        $currID = Session()->get('loginID');
+
         DB::table('comment_tb')->insert([
-            'user_c_id'=>Session()->get('loginID'),
+            'user_c_id'=>$currID,
             'post_id'=>$request->postID,
             'comment'=>$request->comment
         ]);
@@ -44,8 +46,8 @@ class CommentController extends Controller
             env(key: 'PUSHER_APP_ID'),
             $options
         );
-
-        $data = ['comment' => $request->comment];
+        $userInfo = DB::table('users')->where('id', $currID)->first();
+        $data = ['comment' => $request->comment, 'currUser' => $userInfo];
         $pusher ->trigger('my-channel', 'my-event-comment', $data);
 
     }

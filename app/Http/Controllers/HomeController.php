@@ -36,7 +36,7 @@ class HomeController extends Controller
                         AS
                         SELECT * FROM users  
                         JOIN 
-                            (SELECT vf.follower, vf.following, postid, imgdir, caption, created_at, likecount 
+                            (SELECT vf.follower, vf.following, postid, imgdir, caption, likecount 
                                 FROM v_following vf 
                                 JOIN posts on vf.following = posts.userid 
                                 WHERE vf.follower =$myID) v

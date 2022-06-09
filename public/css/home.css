@@ -442,6 +442,11 @@
     height: 100%;
 }
 
+#content-post-right-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
 .content-post-top {
     width: 100%;
     height: 10%;
@@ -477,6 +482,9 @@
     font-weight: 600;
     margin: auto 0;
 }
+
+
+
 
 /* nội dung trong box cmt */
 .content-post-main {

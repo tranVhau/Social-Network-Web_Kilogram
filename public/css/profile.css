@@ -159,7 +159,7 @@ a.logo-box img {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.819);
+    background-color: rgba(0, 0, 0, 0.8);
     display: none;
     align-items: center;
     justify-content: center;
@@ -351,7 +351,7 @@ input#post_img {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.819);
+    background-color: rgba(0, 0, 0, 0.8);
     align-items: center;
     justify-content: center;
     z-index: 5;
@@ -417,6 +417,19 @@ input#post_img {
     display: flex;
     border-bottom: 1px solid rgb(195, 189, 189);
     position: relative;
+}
+
+.post-option {
+    position: absolute;
+    right: 4%;
+    margin: 5% 10px;
+    padding: 6px;
+    border-radius: 16px;
+}
+
+.post-option:hover {
+    background-color: #c7c6c6;
+
 }
 
 .content-post-pic {
@@ -586,4 +599,215 @@ input#post_img {
     color: (0, 162, 255);
     opacity: 0.5;
     cursor: pointer;
+}
+
+
+/* post option */
+
+.post-option-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    display: none;
+}
+
+.post-option-container.open {
+    display: flex;
+}
+
+.post-option-wrapper div {
+    padding: 14px;
+    cursor: pointer;
+
+}
+
+.post-option-wrapper .post-option-delete:hover {
+    background-color: #dadada;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.post-option-wrapper .post-option-edit:hover {
+    background-color: #dadada;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.post-option-wrapper .post-option-delete {
+    color: #f43939;
+    border-bottom: 1px solid rgb(173, 173, 173);
+}
+
+.post-option-wrapper {
+    position: relative;
+    background-color: #fbfbfb;
+    z-index: 6;
+    width: 150px;
+    height: 100px;
+    border-radius: 7px;
+    text-align: center;
+    font-size: 18px;
+    margin: auto;
+    margin-top: 20%;
+
+}
+
+
+
+
+
+
+
+
+
+.edit-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.819);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+
+}
+
+.edit-modal.open {
+    display: flex;
+}
+
+.edit-modal-container {
+    background-color: #ffff;
+    width: 55%;
+    height: 70%;
+    position: relative;
+    animation: modalFadeIn ease 0.5s;
+    border-radius: 15px;
+}
+
+.edit-modal-header {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    height: 7%;
+    line-height: 36px;
+    text-align: center;
+}
+
+.edit-modal-header #edit-post_btn {
+    position: absolute;
+    right: 11px;
+    cursor: pointer;
+    padding: 0 20px;
+    font-weight: bolder;
+    color: #0089f6;
+}
+
+.edit-modal-header #edit-post_btn:hover {
+    color: #80c4fc;
+
+}
+
+
+.edit-modal-close {
+    color: rgb(245, 245, 245);
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 46px;
+}
+
+
+
+
+@keyframes modalFadeIn {
+    from {
+        transform: translateY(-500px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.edit-left-modal {
+    float: left;
+    width: 54%;
+    height: 93%;
+}
+
+.edit-right-modal {
+    padding: 10px;
+    width: 46%;
+    border-left: 1px solid rgb(155, 155, 155);
+    float: right;
+    height: 93%;
+}
+
+
+.edit-media-modal {
+    display: flex;
+}
+
+
+.edit-media-modal-left .edit-media-object {
+    height: 100%;
+    width: 56px;
+    border-radius: 56px;
+}
+
+.edit-media-modal-left {
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 3px;
+    background: linear-gradient(45deg, rgb(128, 229, 252), rgb(27, 131, 241) 80%);
+}
+
+.edit-media-modal-body {
+    margin-left: 16px;
+}
+
+.edit-media-modal-body p {
+    margin: 6px 0;
+
+}
+
+p.name {
+    font-weight: bolder;
+}
+
+#image_post {
+    /* min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto; */
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* right section */
+
+textarea#edit-caption {
+    width: 100%;
+    height: 70%;
+    border: none;
+    margin-top: 10%;
+    font-size: 20px;
+    font-weight: lighter;
+    resize: none;
+}
+
+textarea#edit-caption:focus,
+input:focus {
+    outline: 0;
 }

@@ -10,7 +10,6 @@ $(document).ready(function(){
     var receiver_id ='';
 
 
-     // Enable pusher logging - don't include this in production
      Pusher.logToConsole = true;
 
      var pusher = new Pusher('bdf53e2c44d214125a54', {

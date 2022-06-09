@@ -1,5 +1,7 @@
 @extends ('layouts.master')
 @section('title', 'Your Profile')
+
+
 {{--
 <link rel="stylesheet" href="asset/css/profile.css"> --}}
 
@@ -111,6 +113,9 @@
                     <img class="user-post-avt" src="" />
                 </div>
                 <p class="content-post-name">Oh.Neo</p>
+                <div class="post-option">
+                    <i class=" fas fa-ellipsis-h options" aria-hidden="true"></i>
+                </div>
             </div>
             <div class="content-post-main">
                 <div class="content-post-cmt">
@@ -141,6 +146,61 @@
                 <button class="cmt-btn">post</button>
             </div>
         </div>
+    </div>
+</div>
+
+
+{{-- option --}}
+<div class="post-option-container">
+    <div class="post-option-wrapper">
+        <div class="post-option-delete">
+            Delete
+
+        </div>
+
+        <div class="post-option-edit">
+            Edit
+
+        </div>
+
+    </div>
+</div>
+
+{{-- edit post popup --}}
+
+
+<div class="edit-modal ">
+    <div class="edit-modal-close js-modal-close">
+        <i class="fa-solid fa-xmark"></i>
+    </div>
+    <div class="edit-modal-container js-modal-cdivontainer">
+        <div class="edit-modal-header">
+            <p>Edit</p>
+            <div id="edit-post_btn">Done</div>
+        </div>
+        <form method="post" id="edit_form" enctype="multipart/form-data">
+            @csrf
+            <div class="edit-left-modal">
+                <img src="" alt="">
+            </div>
+
+            <div class=" edit-right-modal">
+                <div class="edit-media-modal">
+                    <div class="edit-media-modal-left">
+                        <img src={{asset('image/avt/' . $avatar)}} alt="" class="edit-media-object">
+                    </div>
+                    <div class="edit-media-modal-body">
+                        <p class="name">{{$data->fullname}}</p>
+                        <p class="email">{{$data->username}}</p>
+                    </div>
+                </div>
+                <textarea name="caption" id="edit-caption" cols="30" rows="10"
+                    placeholder="Write a caption..."></textarea>
+
+
+            </div>
+            <span class="text-danger" id="image-input-error"></span>
+        </form>
     </div>
 </div>
 @endsection

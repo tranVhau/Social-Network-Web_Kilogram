@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id('postid');
-            $table->bigInteger('userid');
-            $table->text('imgdir');
-            $table->text('caption');
-            $table->integer('likecount');
+        Schema::create('follow', function (Blueprint $table) {
+            $table->bigInteger('follower');
+            $table->bigInteger('following');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        //
     }
 };

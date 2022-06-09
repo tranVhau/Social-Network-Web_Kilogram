@@ -14,18 +14,20 @@ $(document).ready(function () {
         var html_tag = 
         "<div class='content-post-cmt'>"+
             "<div class='content-post-pic-cmt'>"+
-                "<img src='https://pdp.edu.vn/wp-content/uploads/2021/01/hinh-anh-cute-de-thuong.jpg'/>"+
+                "<img src='image/avt/" + data.currUser.avatar +"'/>" +
             "</div>"+
             "<div class='cmt-box-main'>"+
                 "<div class='top-cmt'>"+
-                    "<p class='user-cmt'>username</p>"+
+                    "<p class='user-cmt'>" + data.currUser.username + "</p>"+
                     "<p class='sub-cmt-time'>1 hour ago</p>"+
                     "<p class='cmt-sub'>"+data.comment+ "</p>"+
                 "</div>"+
             "</div>"+
         "</div>"
         
-        $('.content-post-right .content-post-main').append(html_tag)
+        // tempPostID =  'content-'+postID+'-right'
+        // $(tempPostID+' .content-post-main').append(html_tag)
+        $('.content-'+postID +'-right .content-post-main').append(html_tag)
     });
 
 
@@ -37,17 +39,19 @@ $(document).ready(function () {
 
     $(".icon-comment").click(function() {
         postID = $(this).attr('id');
-
+        $("#content-post-right-wrapper").attr("class", "content-"+postID+"-right");
+    
         $.ajax({
             type: 'post',
             url: "comment/post/"+postID,
             cache: false,
             success: function(data){
 
+                $(".content-post-main").html("");
                 $.each(data.cmtLst, function( index, value) {
-                    html_tag = "<div class='content-post-cmt'>"+
+                    html_comment_tag = "<div class='content-post-cmt'>"+
                         "<div class='content-post-pic-cmt'>"+
-                            "<img src='"+ value.avatar +"'/>"+
+                            "<img src='image/avt/" + value.avatar + "'/>"+
                     "</div>"+
                     "<div class='cmt-box-main'>"+
                         "<div class='top-cmt'>"+
@@ -57,8 +61,7 @@ $(document).ready(function () {
                         "</div>"+
                     "</div>"+
                 "</div>"
-
-                $('.content-post-right .content-post-main').append(html_tag)
+                    $('.content-post-right .content-post-main').append(html_comment_tag)
                 });
                 
 
@@ -68,7 +71,6 @@ $(document).ready(function () {
                 $('.user-post-avt').attr('src', "image/avt/"+data.postData.avatar);
                 $('.content-post-name').text(data.postData.username)
                 
-
 
                 $('.post-modal').addClass('open');
 
@@ -137,7 +139,6 @@ $(document).ready(function () {
     $('.follow-btn').click(function(){
         followId = $(this).attr('id');
         
-
         if($(this).text() == "Following"){
             $(this).text("Follow")
             $(this).css({'color': 'RGB(76, 136, 245)', 'font-style':'normal' })

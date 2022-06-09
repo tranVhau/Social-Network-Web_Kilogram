@@ -135,6 +135,7 @@
     align-items: center;
     justify-content: center;
     z-index: 5;
+
 }
 
 .modal.open {
@@ -143,18 +144,35 @@
 
 .modal-container {
     background-color: #ffff;
-    width: 50%;
-    min-height: 70%;
+    width: 55%;
+    height: 70%;
     position: relative;
     animation: modalFadeIn ease 0.5s;
     border-radius: 15px;
 }
 
 .modal .modal-header {
+    display: flex;
+    justify-content: center;
     border-bottom: 1px solid rgb(209, 209, 209);
-    height: 36px;
+    height: 7%;
     line-height: 36px;
     text-align: center;
+
+}
+
+.modal-header #post_btn {
+    position: absolute;
+    right: 11px;
+    cursor: pointer;
+    padding: 0 20px;
+    font-weight: bolder;
+    color: #0089f6;
+}
+
+.modal-header #post_btn:hover {
+    color: #80c4fc;
+
 }
 
 .modal-close {
@@ -179,10 +197,9 @@
 }
 
 .left-modal {
-    display: inline-block;
-    display: flex;
+    float: left;
     width: 54%;
-
+    height: 93%;
 }
 
 .right-modal {
@@ -190,6 +207,7 @@
     width: 46%;
     border-left: 1px solid rgb(155, 155, 155);
     float: right;
+    height: 93%;
 }
 
 
@@ -197,17 +215,85 @@
     display: flex;
 }
 
-.media-modal-left {
-    margin: 0 10px;
-}
 
-.media-modal-left img {
+.media-modal-left .media-object {
     height: 100%;
     width: 56px;
     border-radius: 56px;
 }
 
+.media-modal-left {
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 3px;
+    background: linear-gradient(45deg, rgb(128, 229, 252), rgb(27, 131, 241) 80%);
+}
+
+.media-modal-body {
+    margin-left: 16px;
+}
+
 .media-modal-body p {
     margin: 6px 0;
 
+}
+
+p.name {
+    font-weight: bolder;
+}
+
+#image_post {
+    /* min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto; */
+    width: 100%;
+    height: 100%;
+}
+
+
+#upload_form {
+    width: 100%;
+    height: 100%;
+}
+
+.input_upload_img {
+    position: absolute;
+    bottom: 36%;
+    left: 16%;
+    z-index: 3;
+    padding: 6px;
+    line-height: 24px;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: rgb(73, 150, 245);
+}
+
+
+
+
+#upload_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* right section */
+
+textarea#caption {
+    width: 100%;
+    height: 70%;
+    border: none;
+    margin-top: 10%;
+    font-size: 20px;
+    font-weight: lighter;
+    resize: none;
+}
+
+textarea#caption:focus,
+input:focus {
+    outline: 0;
 }

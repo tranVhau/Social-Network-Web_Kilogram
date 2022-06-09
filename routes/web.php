@@ -32,6 +32,8 @@ Route::post('/message', [MessageController::class, 'sendmessage']);
 
 
 Route::post('/post',[PostController::class, 'postimg']);
+Route::post('/post/delete', [PostController::class, 'postDel']);
+Route::post('post/edit', [PostController::class, 'postEdit']);
 Route::post('/profile/mdf',[ProfileController::class, 'mdfProfile']);
 
 

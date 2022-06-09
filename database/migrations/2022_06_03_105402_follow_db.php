@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
-            $table->id();
-            $table->integer('from');
-            $table->integer('to');
-            $table->text('Message');
-            $table->tinyInteger('is_read');
+        Schema::create('follow', function (Blueprint $table) {
+            $table->bigInteger('follower');
+            $table->bigInteger('following');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        //
     }
 };
