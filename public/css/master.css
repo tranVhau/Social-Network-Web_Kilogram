@@ -159,6 +159,13 @@
     line-height: 36px;
     text-align: center;
 
+
+}
+
+.modal .modal-header p {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 18px
 }
 
 .modal-header #post_btn {
