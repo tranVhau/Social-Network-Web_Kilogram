@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $.ajaxSetup({
         headers: {
@@ -5,8 +6,48 @@ $(document).ready(function(){
         }
     });
 
+        //search
+
+    $('#search-box').keyup(function(){
+        var keyword = $(this).val();
+        var _html ='';
+        $.ajax({
+            url: 'search',
+            type : 'get',
+            data: {keyword: keyword},
+            success: function(data){
+                //console.log(data)
+                for(var user of data.user){
+                    _html += '<div class="propo">';
+                    _html += '<img src="http://127.0.0.1:8000/image/avt/'+user.avatar+'" class="propo-img">';
+                    _html += '<a class="propo-name" href="http://127.0.0.1:8000/Kilogram/'+user.username+'">'+user.username+'</a> </div>';
+                    $('.proposal-list').html(_html)
+                    //console.log(user.username)
+                }
+            }
+
+           
+
+            
+        })
+        //  for(var i in user){
+        //         _html += '<div class="propo">';
+        //         _html += '<img src="http://127.0.0.1:8000/image/avt/AVT.2.1654262360.jpg" class="propo-img">';
+        //         _html += '<a class="propo-name" href="">'+i.username+'</a> </div>';
+        //         $('.proposal-list').html(_html)     
+        //     }        
+
+        
+    })
+
+
+
+
     var pro_PostID
 
+    $(".icon-comment, .user-post").click(function() {
+        pro_PostID = $(this).attr('id');
+    })
     // crop image
     $image_crop = $('#image_demo').croppie({
         enableExif: true,
@@ -74,10 +115,6 @@ $(document).ready(function(){
     })
 
     
-
-    
-
-
     save_img = document.querySelector("#chose-img");
     save_img.onchange = function (e) {
         if (e.target.files.length > 0) {
@@ -86,37 +123,6 @@ $(document).ready(function(){
             image.src = src;
         }
     }
-
-
-    
-    // post on click
-    $('.post').click(function(){
-        postID = $(this).attr('id');
-        // alert(postID);
-        pro_PostID = postID
-        
-        $.ajax({
-            type: 'post',
-            url: "comment/post/"+postID,
-            cache: false,
-            success: function(data){
-                $('.modal-caption').text(data.postData.caption)
-                $('.like-post').text(data.postData.likecount + " Likes");
-                $('.post-photo').attr('src',"image/post/"+data.postData.imgdir);
-                $('.user-post-avt').attr('src', "image/avt/"+data.postData.avatar);
-                $('.content-post-name').text(data.postData.username)
-                
-
-                $('.post-modal').addClass('open');
-            }
-        })
-    })
-
-    $('.modal-post-close').click(function(){
-        // postID = $(this).attr('id');
-        // alert(postID);
-        $('.post-modal').removeClass('open');
-    })
 
 
     // modify
@@ -152,6 +158,8 @@ $(document).ready(function(){
         
         })
     })
+
+
 
 
     // post option
@@ -207,9 +215,6 @@ $(document).ready(function(){
             }
         })
     })
-
-
-   
 })
 
 

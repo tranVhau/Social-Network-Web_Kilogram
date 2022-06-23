@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
+use stdClass;
 
 class ProfileController extends Controller
 {
@@ -14,7 +15,14 @@ class ProfileController extends Controller
         $currID = Session()->get('loginID');
         $loadIMG=DB::table('posts')->where('userid',$currID)->get();
         $loadAVT=DB::table('users')->where('id',$currID)->value('avatar');
-        return view('pages.profile', ['avatar'=>$loadAVT, 'loadIMG'=>$loadIMG]);
+        $follower = DB::table('follow')->where('following',$currID )->count();
+        $following = DB::table('follow')->where('follower',$currID )->count();
+        $postCount = DB::table('posts')->where('userid', $currID)->count();
+        $statsDat = new stdClass();
+        $statsDat->follower = $follower;
+        $statsDat->following = $following;
+        $statsDat->postCount = $postCount;
+        return view('pages.profile', ['avatar'=>$loadAVT, 'loadIMG'=>$loadIMG, 'statsDat'=>$statsDat]);
     }
 
     public function mdfProfile(Request $request){
@@ -27,7 +35,7 @@ class ProfileController extends Controller
             $mdf_username = $request->username_mdf;
             $count_user = DB::table('users')->where('username', $mdf_username)->count();
             if($count_user>0){
-                return response()->json(['error' => 'Username already'], 500);
+                return response()->json(['error' => 'Username already taken'], 500);
             }
             
         }

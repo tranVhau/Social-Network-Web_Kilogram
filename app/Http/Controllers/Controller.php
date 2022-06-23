@@ -19,9 +19,9 @@ class Controller extends BaseController
         $this->middleware(function ($request, $next) {
 
             
-
-            $data = array();
-            $data = DB::table('Users')->where('id','=', $request->Session()->get('loginID'))->first();
+            $currID =$request->Session()->get('loginID');
+            $data = DB::table('Users')->where('id','=', $currID)->first();
+            
             $userdata = $request->Session()->get('loginID');
 
             $loadAVT=DB::table('users')->where('id',$userdata)->value('avatar');

@@ -49,11 +49,64 @@
     transform: translate(-50%);
     width: 300px;
     height: 36px;
-    background: rgb(245, 245, 245);
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    text-align: center;
+}
+
+#search-box {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 300px;
+    height: 36px;
+    background: rgb(255, 255, 255);
     border: 1px solid #dfdfdf;
     border-radius: 5px;
     text-align: center;
 }
+
+.proposal-list {
+    background: rgb(255, 255, 255);
+    margin-top: 38px;
+    position: absolute;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.proposal-list .propo {
+    display: flex;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid rgb(232, 232, 232);
+}
+
+
+.proposal-list .propo:hover {
+    background-color: rgb(217, 217, 217);
+    border-radius: 3px;
+}
+
+.propo .propo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 3px;
+
+}
+
+.propo .propo-name {
+    text-decoration: none;
+    margin-left: 20px;
+    line-height: 50px;
+}
+
+.propo .propo-name:hover {
+    text-decoration: underline;
+}
+
+
 
 .nav-item {
     position: relative;

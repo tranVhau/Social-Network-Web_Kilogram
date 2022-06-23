@@ -11,8 +11,6 @@ class CommentController extends Controller
     //
 
     public function postModal($postID){
-
-
         $comment_lst = DB::table('users')->join('comment_tb', 'id', 'user_c_id')->where('post_id', $postID)->get();
 
         $dataPost = DB::table('users')->join('posts','id','userid')->where('postid',$postID)->first();
@@ -21,7 +19,6 @@ class CommentController extends Controller
     
         $response = ['postData'=>$dataPost,'cmtLst'=>$comment_lst];
         return response()->json($response);
-
     }
 
     

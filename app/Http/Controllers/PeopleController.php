@@ -14,6 +14,14 @@ class PeopleController extends Controller
         $infoUser = DB::table('users')->where('username',$username)->first();
         $userPosts = DB::table('posts')->where('userid',$infoUser->id)->get();
         $isFollow = DB::table('follow')->where([['follower','=',$currID],['following','=',$infoUser->id]]);
+
+        $follower = DB::table('follow')->where('following',$infoUser->id )->count();
+        $following = DB::table('follow')->where('follower',$infoUser->id )->count();
+        $postCount = DB::table('posts')->where('userid', $infoUser->id)->count();
+        $infoUser->follower = $follower;
+        $infoUser->following = $following;
+        $infoUser->postCount = $postCount;
+
         if($isFollow->first()){
             $status='follow-btn-1';
             $text ="Following";
@@ -35,5 +43,10 @@ class PeopleController extends Controller
             DB::table('follow')->insert(['follower'=>$currID, 'following' =>$request->followId]);
         }
         
+    }
+
+    public function searchFunc(Request $request){
+        $res = DB::table('users')->where('username','LIKE','%'.$request->keyword.'%')->get();
+        return (['user'=>$res]);
     }
 }

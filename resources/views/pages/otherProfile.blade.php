@@ -13,9 +13,9 @@
             </div>
             <div class=" full-name"> {{$info->fullname}}</div>
             <div class="folow-detail">
-                <a class="post-num"> 1 post </a>
-                <a class="folower-num"> 1 follower</a>
-                <a class="folowing-num"> 1 following</a>
+                <a class="post-num"> {{$info->postCount}} posts </a>
+                <a class="folower-num"> {{$info->follower}} followers</a>
+                <a class="folowing-num"> {{$info->following}} following</a>
             </div>
             <p class="user-describe">{{$info->describe}}</p>
         </div>
@@ -27,7 +27,7 @@
 @else
 <div id="post-container">
     @foreach($posts as $post)
-    <div class="post" id={{$post->postid}}>
+    <div class="user-post" id={{$post->postid}}>
         <img src={{asset('image/post/' . $post->imgdir) }} class="post-img" alt="">
         <div class="likes">
             <a><i class="fa-solid fa-heart heart-icon"></i></a>
@@ -37,5 +37,55 @@
     @endforeach
 </div>
 @endif
+
+
+{{-- post-Modal --}}
+
+<div class="post-modal">
+    <div class="modal-post-close">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="modal-post-container">
+        <div class="img-post-left">
+            <img class="post-photo" src="{{asset('image/avt/avatar.jpeg')}}" alt="">
+        </div>
+        <div class="content-post-right">
+            <div class="content-post-top">
+                <div class="content-post-pic">
+                    <img class="user-post-avt" src="" />
+                </div>
+                <p class="content-post-name">vanhau</p>
+
+            </div>
+            <div class="content-post-main">
+                <div class="content-post-cmt">
+                    <div class="content-post-pic-cmt">
+                        <img src="" />
+                    </div>
+                    <div class="cmt-box-main">
+                        <div class="top-cmt">
+                            <p class="user-cmt">username</p>
+                            <p class="sub-cmt-time">1 hour ago</p>
+                            <p class="cmt-sub">Lorem, ipsum </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-bot">
+                <p class="like-post">2 likes</p>
+                <p class="time-post">2021/12/08</p>
+            </div>
+
+            <div class="modal-caption"> Lorem ipsum dolor </div>
+            <div class="cmt">
+                <img class="user-post-avt1" class="img-cmt" src="{{asset('image/avt/'.$avatar)}}" />
+                <input type="text" class="cmt-box" placeholder="Add a comment" />
+                <button class="cmt-btn">post</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="{{asset('js/otherPr.js')}}"></script>
+<script src="{{asset('js/comment.js')}}"></script>
 @endsection

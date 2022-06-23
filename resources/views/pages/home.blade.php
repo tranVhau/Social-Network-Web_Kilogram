@@ -108,9 +108,6 @@
             <div class="img-post-left">
                 <img class="post-photo" src="" alt="">
             </div>
-
-
-
             <div class="content-post-right">
                 <div id="content-post-right-wrapper">
                     <div class="content-post-top">
@@ -138,7 +135,7 @@
 
         </div>
     </div>
-
     <script src="{{asset('./js/home.js')}}"></script>
+    <script src="{{asset('js/comment.js')}}"></script>
 </div>
 @endsection

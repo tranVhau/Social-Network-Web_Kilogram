@@ -44,3 +44,6 @@ Route::post('/Home/like',[HomeController::class, 'onLike']);
 
 Route::post('comment/post/{postID}', [CommentController::class, 'postModal']);
 Route::post('comment',[CommentController::class, 'postComment']);
+
+Route::get('/search',[PeopleController::class, 'searchFunc']);
+

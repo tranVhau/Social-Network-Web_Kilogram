@@ -24,13 +24,23 @@
         <div id="navbar">
             <div class="nav-wrapper">
                 <a href="{{route('home')}}" class="logo-box"><img src="{{asset('img/logo.png')}}" alt=""></a>
-                <input type="text" class="search-box" placeholder="Search">
+                <form class="search-box">
+                    <div class="search-group">
+                        <input type="text" id="search-box" placeholder="Search">
+                        <div class="proposal-list">
+
+
+                        </div>
+                    </div>
+                </form>
+
 
                 <div class="nav-item">
                     <div id="home_btn" class="item"><a href="{{route('home')}}"><i class="fa-solid fa-house"></i></a>
                     </div>
                     <div class="item js-create-post"><a><i class="fa-regular fa-square-plus"></i></a> </div>
-                    <div class="item"><a href="{{route('inbox')}}"><i class="fa-regular fa-message"></i></a></div>
+                    <div class="item"><a href="{{route('inbox')}}"><i class="fa-regular fa-message"></i></a>
+                    </div>
                     <div class="item">
                         <p id="drop-down-menu"><i class="fa-regular fa-user"></i></p>
                         <div class="drop-field">

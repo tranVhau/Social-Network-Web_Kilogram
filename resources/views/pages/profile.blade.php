@@ -20,9 +20,9 @@
             </div>
             <div class=" full-name"> {{$data->fullname}}</div>
             <div class="folow-detail">
-                <a class="post-num"> 1 post </a>
-                <a class="folower-num"> 1 follower</a>
-                <a class="folowing-num"> 1 following</a>
+                <a class="post-num"> {{$statsDat->postCount}} posts </a>
+                <a class="folower-num"> {{$statsDat->follower}} followers</a>
+                <a class="folowing-num"> {{$statsDat->following}} following</a>
             </div>
             <p class="user-describe">{{$data->describe}}</p>
         </div>
@@ -35,7 +35,7 @@
 @else
 <div id="post-container">
     @foreach($loadIMG as $img)
-    <div class="post" id={{$img->postid}}>
+    <div class="user-post" id={{$img->postid}}>
         <img src={{asset('image/post/' . $img->imgdir) }} class="post-img" alt="">
         <div class="likes">
             <a><i class="fa-solid fa-heart heart-icon"></i></a>
@@ -203,4 +203,6 @@
         </form>
     </div>
 </div>
+
+<script src="{{asset('js/comment.js')}}"></script>
 @endsection

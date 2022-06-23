@@ -55,15 +55,15 @@ class PostController extends Controller
     }
 
     public function postDel(Request $request){
-        // DB::table('posts')->where('postid', $request->pro_PostID)->delete();
-        $currPost = DB::table('posts')->where('postid', $request->pro_PostID)->first();
+       // DB::table('posts')->where('postid', $request->pro_PostID)->delete();
+       $currPost = DB::table('posts')->where('postid', $request->pro_PostID)->first();
 
-        $image_path = 'image/post/'.$currPost->imgdir;
-        
-        if(file_exists($image_path)) {
-            @unlink($image_path);
-            DB::table('posts')->where('postid', $request->pro_PostID)->delete();
-        }
+       $image_path = 'image/post/'.$currPost->imgdir;
+       
+       if(file_exists($image_path)) {
+           @unlink($image_path);
+           DB::table('posts')->where('postid', $request->pro_PostID)->delete();
+       }
         
     }
 
